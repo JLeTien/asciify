@@ -1,11 +1,8 @@
 from PIL import Image,ImageOps,ImageEnhance
-from matplotlib import image
-from sympy import fps
 import cv2
 import os
 import imgkit
 import shutil
-from multiprocessing import Pool
 
 # This function reads the video frame by frame and saves it as an image in the "Images" folder. 
 # The function returns the frames per second (fps) of the video and the total number of frames extracted.
@@ -71,7 +68,8 @@ def print_ascii(ascii_list, image, color,image_pos):
                <!DOCTYPE html>
                <html>
                <body style='background-color:black'>
-               <pre style='display: inline-block; border-width: 4px 6px; border-color: black; border-style: solid; background-color:black; font-size: 32px ;font-face: Montserrat;font-weight: bold;line-height:60%'>""")
+               <pre style='display: inline-block; border-width: 4px 6px; border-color: black; border-style: solid; background-color:black; font-size: 32px ;font-face: Montserrat;font-weight: bold;line-height:60%'>
+               """)
     width, height = image.size
     counter = 0
     
@@ -94,7 +92,6 @@ def main(video_path):
     
     config = imgkit.config(wkhtmltoimage='/usr/local/bin/wkhtmltoimage')
     ascii_string = [" ",".",":","-","=","+","*","#","%","@","&"]
-    ascii_string2 = [" ",".",":","-","✧","★","*","#","%","","★"]
 
     fps, frames = video_to_images(video_path)
     
